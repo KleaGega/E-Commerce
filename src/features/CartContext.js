@@ -60,11 +60,24 @@ export const CartProvider = ({ children }) => {
   };
   const handleCheckOut = () => {
     dispatch({ type: "Clear" }); // Clear the cart
-    navigate('./checkout'); // Navigate to checkout
+    navigate('./checkout '); // Navigate to checkout
   };
 
   return (
-    <CartContext.Provider value={{data, cart, handleDetails, dispatch ,increase,decrease,handleRemove,addToCart,goHome,totalItem,totalPrice,handleCheckOut}}>
+    <CartContext.Provider value={
+        {data,
+         cart, 
+         handleDetails, 
+         dispatch ,
+         increase,
+         decrease,
+         handleRemove,
+         addToCart,
+         goHome,
+         totalItem,
+         totalPrice,
+         handleCheckOut}
+        }>
       {children}
     </CartContext.Provider>
   );

@@ -2,12 +2,14 @@ import React, { useContext } from 'react';
 import CartContext from '../../features/CartContext';
 import ShopProducts from './ShopProducts';
 import './cartSummary.css';
+import { ThemeContext } from '../../features/ThemeProvider';
 
 const CartSummary = () => {
    const { cart, totalItem, totalPrice, handleCheckOut } = useContext(CartContext);
- 
+   const { theme } = useContext(ThemeContext); 
+
    return (
-     <div className="cart-summary-container">
+     <div className={`cart-summary-container ${theme}`}>
        <div className="products-container">
          {cart.length > 0 ? (
            cart.map((product) => (

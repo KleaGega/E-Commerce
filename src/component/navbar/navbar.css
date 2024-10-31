@@ -1,71 +1,108 @@
 .navbar {
-  background-color: #282c34;
-  padding: 1rem;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 15px 20px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease; 
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.dark_cart {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  gap: 13px
+}
+li.dark {
+  color: white;
+}
+.navbar.light {
+  background-color: #f1f1f1;
+
 }
 
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+.navbar.dark {
+ background-color: #444;
+  color: white; 
 }
 
 .navbar-title {
-  color: white;
-  font-size: 1.5rem;
-  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .navbar-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem; 
-  margin: 0; 
+  list-style: none; 
+  display: flex; 
+  gap: 20px; 
+  margin: 0;
 }
 
 .navbar-link {
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
+  text-decoration: none; 
+  color: inherit; 
+  font-size: 18px;
+  transition: color 0.3s ease;
 }
 
 .navbar-link:hover {
-  text-decoration: underline; 
+  color: #007bff; 
+}
+
+.navbar-cart {
+  display: flex;
+  align-items: center; 
+  position: relative; 
+}
+
+.navbar-cart-link {
+  display: flex;
+  align-items: center; 
+  color: inherit; 
+  text-decoration: none; 
+}
+.bscart {
+  font-size: 24px; 
+  position: relative;
 }
 
 .total {
-  position: absolute;
-  top: -5px;
-  right: -10px;
-  background-color: red;
-  border-radius: 50%;
-  padding: 0.2rem 0.5rem;
-  color: white;
-  font-size: 0.75rem;
-}
-.navbar-cart-link {
+  position: absolute; 
+  top: -5px; 
+  right: -10px; 
+  background-color: red; 
+  color: white; 
+  border-radius: 50%; 
+  padding: 5px 8px; 
+  font-size: 12px; 
   display: flex; 
-  align-items: center;
-  text-decoration: none; 
-  color:blue; 
-  padding: 10px; 
-  transition: color 0.3s; 
-  transform: scale(1.1);
+  justify-content: center; 
+  align-items: center; 
 }
 
-.navbar-cart-link:hover {
-  color: #3498db; 
+.theme-button {
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+  color: inherit; 
+  font-size: 18px; 
+  transition: color 0.3s ease; 
 }
 
-.bscart {
-  width: 24px;
-  height: 24px; 
-  margin-right: 5px; 
-  transition: transform 0.3s;
-  
+.theme-button:hover {
+  color: #007bff; 
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
 
+  .navbar-links {
+    flex-direction: column; 
+    gap: 10px; 
+  }
+}
