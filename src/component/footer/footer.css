@@ -1,0 +1,20 @@
+.layout_footer {
+  background-color: #282c34; 
+  color: #ffffff; 
+  text-align: center;
+  padding: 20px 0; 
+  font-size: 16px;
+  position: relative; 
+  bottom: 0;
+  width: 100%; 
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.layout_footer a {
+  color: #61dafb; 
+  text-decoration: none;
+}
+
+.layout_footer a:hover {
+  text-decoration: underline;
+}
