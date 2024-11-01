@@ -22,6 +22,7 @@ const useShopping = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  
   useEffect(() => {
     localStorage.setItem('data', JSON.stringify(data));
   }, [data]);

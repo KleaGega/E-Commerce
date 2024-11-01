@@ -1,7 +1,6 @@
 import { createContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import CartReducer from "./CartReducer";
-import useCart from "./useShopping";
 import useShopping from "./useShopping";
 
 export const CartContext = createContext();
@@ -12,12 +11,6 @@ export const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(CartReducer, initialCart);
   const { data,setData } = useShopping();
 
-  useEffect(() => {
-    const savedData = JSON.parse(localStorage.getItem("data"));
-    if (savedData) {
-      setData(savedData);
-    }
-  }, [setData]);
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cart));
@@ -27,7 +20,7 @@ export const CartProvider = ({ children }) => {
 
   const handleDetails = (id) => {
     navigate(`/product/${id}`);
-    console.log(`Element me id: ${data.id}`);
+    console.log(`choose element me id: ${id}`);
   }; 
   const addToCart = (item) => {
     dispatch({ type: "Add", data: item });
@@ -35,10 +28,12 @@ export const CartProvider = ({ children }) => {
   
   const increase = (id) => {
     dispatch({ type: "Increase", payload: {id}});
+    console.log(`Increase product with id: ${id}`);
   };
   
   const decrease = (id) => {
     dispatch({ type: "Decrease", payload:{id} });
+    console.log(`Decrease product with id: ${id}`);
   };
   
 
@@ -60,8 +55,8 @@ export const CartProvider = ({ children }) => {
     return cart.reduce((total, data) => total + (data.quantity || 0) * (data.price || 0), 0);
   };
   const handleCheckOut = () => {
-    dispatch({ type: "Clear" }); // Clear the cart
-    navigate('./checkout '); // Navigate to checkout
+    dispatch({ type: "Clear" });
+    navigate('./checkout ');
   };
 
   return (

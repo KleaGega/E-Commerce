@@ -4,6 +4,9 @@ import ShopProducts from './ShopProducts';
 import './cartSummary.css';
 import { ThemeContext } from '../../features/ThemeProvider';
 
+
+
+
 const CartSummary = () => {
    const { cart, totalItem, totalPrice, handleCheckOut } = useContext(CartContext);
    const { theme } = useContext(ThemeContext); 
