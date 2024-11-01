@@ -55,9 +55,10 @@ export const CartProvider = ({ children }) => {
     return cart.reduce((total, data) => total + (data.quantity || 0) * (data.price || 0), 0);
   };
   const handleCheckOut = () => {
-    dispatch({ type: "Clear" });
+    dispatch({ type: "Clear"  });
     navigate('./checkout ');
   };
+ 
 
   return (
     <CartContext.Provider value={

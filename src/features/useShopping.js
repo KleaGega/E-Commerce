@@ -6,6 +6,7 @@ const useShopping = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  //Fetch product
   const fetchData = async () => {
     try {
       const response = await axios.get("https://fakestoreapi.com/products");
@@ -23,9 +24,9 @@ const useShopping = () => {
     fetchData();
   }, []);
   
-  useEffect(() => {
+  {/*useEffect(() => {
     localStorage.setItem('data', JSON.stringify(data));
-  }, [data]);
+  }, [data]);*/}
 
   return { data, loading, error,setData };
 };
