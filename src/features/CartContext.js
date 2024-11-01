@@ -2,6 +2,7 @@ import { createContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import CartReducer from "./CartReducer";
 import useCart from "./useShopping";
+import useShopping from "./useShopping";
 
 export const CartContext = createContext();
 
@@ -9,7 +10,7 @@ export const CartProvider = ({ children }) => {
 
   const initialCart = JSON.parse(localStorage.getItem("cartItems")) || [];
   const [cart, dispatch] = useReducer(CartReducer, initialCart);
-  const { data,setData } = useCart();
+  const { data,setData } = useShopping();
 
   useEffect(() => {
     const savedData = JSON.parse(localStorage.getItem("data"));
